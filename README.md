@@ -49,11 +49,11 @@ ___
 ### ANALISIS Y DISEÑO
 
 
-*Datos de entrada*
-*Datos de salida*
-*Datos*
-*Debug*
-*Objetos*
+*Datos de entrada*/n
+*Datos de salida*/n
+*Datos*/n
+*Debug*/n
+*Objetos*/n
 
 ___
 ## DOCUMENTACIÓN DE REFERENCIA
