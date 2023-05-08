@@ -48,25 +48,29 @@ de información, que les permita saber:
 ___
 ### ANALISIS Y DISEÑO
 
-
-*Datos de entrada*
-
-
-*Datos de salida*
-
-
-*Datos*
-
-
-*Debug*
-
-
-*Objetos*
-
-
+*DIAGRAMA DE MODELO DE CLASES*
 
 ___
 ## DOCUMENTACIÓN DE REFERENCIA
 
+___
+## ENTREGABLES
+
+● Resolver el enunciado realizando:
+● Análisis (Se realiza la documentación del mismo) -PROG II
+● Administración de tareas (Meistertask, Trello, Notion, etc) - PROG II
+● Control de versiones (BitBucket, GitHub, GitLab) - LAB II
+● Documentación (Se debe documentar el desarrollo y subirlo
+en un zip a la plataforma en ambas materias)
+● Desarrollado en Python. NO SE PERMITE OTRO LENGUAJE
+● Presentación del Enunciado Funcionando - LAB II
+● Defensa Oral por cada integrante del Grupo (ambas materias)
+
+## FECHAS
+
+● Fecha de presentación del Grupo: Próxima Clase
+● Fecha de máxima de subida de documentación: Clase
+  anterior a la presentación Oral
+● Fecha de presentación Oral: Semana del 26 al 30 de Junio
 
 
