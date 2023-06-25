@@ -8,7 +8,7 @@ Trabajo Practico Integrador Programacion II/Laboratorio De Computacion II
 ● Lurgo Johnston Martiniano
 https://github.com/MartinianoLurgo
   
-● Mollina Mansilla Ignacio
+● Molina Mansilla Ignacio
 https://github.com/NachoMansilla2103
   
 ● Piñan Federico 
