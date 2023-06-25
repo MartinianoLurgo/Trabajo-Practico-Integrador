@@ -1,7 +1,8 @@
 # Trabajo-Practico-Integrador
 Trabajo Practico Integrador Programacion II/Laboratorio De Computacion II
 
-![logo](https://user-images.githubusercontent.com/105757516/236952596-193e8aa3-09a5-48e2-be4d-5dfb3fa704e0.png)
+![Captura de pantalla 2023-06-25 204219](https://github.com/MartinianoLurgo/TRABAJO-PRACTICO-INTEGRADOR-LABORATORIO-PROGRAMACION/assets/105757516/2b849f09-9a98-497f-b457-3d124b78fdd9)
+
 
 ## Integrantes:
 
