@@ -1,19 +1,19 @@
 class Calendario:
-    def __init__(self) -> None:
-        self.fecha = []
-        self.anio = 2023
+    def __init__(self):
+        self._fecha = str
+        self._estado = bool
 
     #GETTERS
     def get_fecha(self):
-        return self.fecha
-    def get_anio(self):
-        return self.anio
+        return self._fecha
+    def get_estado(self):
+        return self._estado
     
     #SETTERS
     def set_fecha(self,data):
         self.fecha = data
-    def set_anio(self,data):
-        self.anio = data
-    
+    def set_estado(self,data):
+        self._estado = data
+        
     def __str__(self) -> str:
-        return print(f"Fecha: {self.fecha} \nAnio: {self.anio}")
+        return print(f"Fecha: {self._fecha} \nEstado: {self._estado}")
