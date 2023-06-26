@@ -39,3 +39,6 @@ class VistaCliente:
     
     def cliente_no_encontrado(self):
         print("No se encontró el cliente ❌.")
+        
+        
+        
