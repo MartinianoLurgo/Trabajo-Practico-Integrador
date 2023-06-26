@@ -1,14 +1,15 @@
 # Trabajo-Practico-Integrador
 Trabajo Practico Integrador Programacion II/Laboratorio De Computacion II
 
-![logo](https://user-images.githubusercontent.com/105757516/236952596-193e8aa3-09a5-48e2-be4d-5dfb3fa704e0.png)
+![descarga (1)](https://github.com/MartinianoLurgo/TRABAJO-PRACTICO-INTEGRADOR-LABORATORIO-PROGRAMACION/assets/105757516/b0496088-684f-474c-9eb0-56620850fff0)
+
 
 ## Integrantes:
 
 ● Lurgo Johnston Martiniano
 https://github.com/MartinianoLurgo
   
-● Mollina Mansilla Ignacio
+● Molina Mansilla Ignacio
 https://github.com/NachoMansilla2103
   
 ● Piñan Federico 
@@ -51,7 +52,7 @@ ___
 
 *DIAGRAMA DE MODELO DE CLASES*
 
-![Captura de pantalla 2023-06-16 214035](https://github.com/MartinianoLurgo/TRABAJO-PRACTICO-INTEGRADOR-LABORATORIO-PROGRAMACION/assets/105757516/4f3887ee-d8b4-4f10-82c5-686034635719)
+![Captura de pantalla 2023-06-25 204219](https://github.com/MartinianoLurgo/TRABAJO-PRACTICO-INTEGRADOR-LABORATORIO-PROGRAMACION/assets/105757516/2b849f09-9a98-497f-b457-3d124b78fdd9)
 
 
 ___
