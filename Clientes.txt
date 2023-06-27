@@ -1,0 +1,3 @@
+05;7;2023;Joaquin;Luque;DJ;Maquina de Humo;Caterin;5000
+18;7;2023;Simon;Bolivar;DJ;Maquina de Humo;Cotillon;Caterin;8000
+22;7;2023;Jose;De la Rúa;DJ;Decoracion;Cotillon,Maquillaje;12000
