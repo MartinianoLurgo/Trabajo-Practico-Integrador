@@ -1,5 +1,5 @@
 class Servicio:
-    def __init__(self) -> None:
+    def __init__(self):
         self._id 
         self._costo
         self._listaServicios
