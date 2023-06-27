@@ -1,4 +1,8 @@
 01;joaquin;luque;44974608;3532258665;efectivo;true
 02;simon;bolivar;41746663;3532666392;credito;true
+<<<<<<< Updated upstream
 03;jose;de la Rua;3948560;3532183590;debito;true
 04;luis;Perez;43756554;3572987762;efectivo;true
+=======
+03;jose;De la Rua;3948560;3532183590;debito;true
+>>>>>>> Stashed changes
