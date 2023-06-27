@@ -1,7 +1,8 @@
 class Servicio:
-    def __init__(self,id = 0,tipoServicio ="",descripcion ="",costo=0,estado=None):
-        self._idServico = id
+    def __init__(self,idServicio = 0,tipoServicio ="",descripcion ="",costo=0,estado=None):
+        self._idServico = idServicio
         self._tipoServicio = tipoServicio
+        self._descripcion = descripcion
         self._costo = costo
         self._estado = estado
         self._listaServicios = []
