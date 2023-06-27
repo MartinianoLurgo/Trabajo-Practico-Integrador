@@ -1,7 +1,6 @@
-import calendar
 class VistaCalendario:
-    def mostrar_calendario(self):
-        calendario = calendar.TextCalendar(calendar.SUNDAY)
-        calen = calendario.prmonth(2023,10)
-        return calen
-    
+    def mostrar_calendario(self,dia):
+        print(f"Reserva:|{dia}/07/2023|")
+
+    def estado(self,estado):
+        return (f"La Fecha esta:{estado}🪄")
