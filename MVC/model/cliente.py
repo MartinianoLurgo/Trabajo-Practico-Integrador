@@ -1,11 +1,11 @@
 class Cliente:
-    def __init__(self):
-        self._idCliente
-        self._nombre
-        self._apellido
-        self._dni
-        self._telefono
-        self._metodoDePago
+    def __init__(self,idCliente=0,nombre="" , apellido="" , dni=0 , telefono=0,metododepago=""):
+        self._idCliente = idCliente
+        self._nombre = nombre
+        self._apellido = apellido
+        self._dni = dni
+        self._telefono = telefono
+        self._metodoDePago = metododepago
 
     #GETTERS
     def get_idCliente(self):

@@ -10,19 +10,17 @@ class VistaCliente:
 
 
     def pedir_opcion(self):
-        return int(input("➡️ "))
+        return input("➡️ ")
     
     def mostrar_clientes(self,cliente):
         return f"{cliente}"
 
     def archivo_no_encontrado(self):
         print("No se encontró ningún archivo de clientes . Se creará uno nuevo.")
+    
     def pedir_nombre(self):
         return input ("escriba el nombre la persona que deceas cambiar ")
-
-    def pedir_cambio(self,cliente):
-        return input (f"que deceas cambiar del cliente: {cliente} ")
-
+    
     def pedir_nombre(self):
         return input("Ingrese el Nombre: ")
 
@@ -30,7 +28,7 @@ class VistaCliente:
         return input("Ingrese el Apellido: ")
 
     def pedir_dni(self):
-        return int(input("Ingrese el número de DNI del cliente: "))
+        return int(input("Ingrese el número de DNI del cliente: ")) 
 
     def pedir_telefono(self):
         return int(input("Ingrese el teléfono 📞: "))
