@@ -1,5 +1,5 @@
 class Reserva:
-    def __init__(self,cliente,fecha,servicios,importe) -> None:
+    def __init__(self,cliente="",fecha="",servicios="",importe=""):
         self._idReserva = int
         self._cliente = cliente
         self._fecha = fecha
