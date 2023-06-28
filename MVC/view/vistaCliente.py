@@ -6,14 +6,22 @@ class VistaCliente:
         print("")
         print("1 - Mostrar Lista de Clientes ")
         print("2 - Cambiar Datos del Cliente")
-        print("2 - Salir del Programa")
+        print("3 - Salir del Programa")
 
 
     def pedir_opcion(self):
         return int(input("➡️ "))
+    
+    def mostrar_clientes(self,cliente):
+        return f"{cliente}"
 
     def archivo_no_encontrado(self):
         print("No se encontró ningún archivo de clientes . Se creará uno nuevo.")
+    def pedir_nombre(self):
+        return input ("escriba el nombre la persona que deceas cambiar ")
+
+    def pedir_cambio(self,cliente):
+        return input (f"que deceas cambiar del cliente: {cliente} ")
 
     def pedir_nombre(self):
         return input("Ingrese el Nombre: ")
@@ -31,10 +39,10 @@ class VistaCliente:
         return input("Ingrese el Metodo de Pago del Cliente💲: ")
 
     def dato_invalido(self):
-        print("Error, dato ingresado no válido ❌.")
+        return("Error, dato ingresado no válido ❌.")
 
     def registro_exitoso(self):
-        print("Se Registro el cliente ✅.")
+        return("Se Registro el cliente ✅.")
 
     def cliente_no_encontrado(self):
-        print("No se encontró el cliente ❌.")
+        return("No se encontró el cliente ❌.")
