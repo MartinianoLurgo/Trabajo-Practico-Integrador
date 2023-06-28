@@ -1,6 +1,10 @@
 class VistaItem:
-    def importe(self,servicio):
-        return(f"Importe de servicio :{servicio}⛽")
+    def mostrar_menu(self):
+        print(f"-------MENÚ DE COSTOS-------")
+        print("")
+
+    def mostrar_importe(self,servicio):
+        return(f"Importe de servicios :{servicio}⛽")
         
     def mostrar_iva(self,iva):
         return (f" IVA total: {iva}😮")

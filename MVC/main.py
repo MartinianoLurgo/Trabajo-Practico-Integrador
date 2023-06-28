@@ -1,2 +1,5 @@
+from controller.controladorReserva import ControladorReserva
+
 if __name__=="__main__":
-    print("")
+    controlador = ControladorReserva()
+    controlador.mostrar_menu()
