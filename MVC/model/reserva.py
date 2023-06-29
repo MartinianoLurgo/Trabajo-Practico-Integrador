@@ -1,6 +1,6 @@
 class Reserva:
-    def __init__(self,cliente="",fecha="",servicios="",importe=""):
-        self._idReserva = int
+    def __init__(self,idReserva=0, cliente="",fecha="",servicios="",importe=""):
+        self._idReserva = idReserva
         self._cliente = cliente
         self._fecha = fecha
         self._servicios = servicios
