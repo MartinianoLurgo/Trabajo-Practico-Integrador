@@ -1,11 +1,19 @@
 class Cliente:
+<<<<<<< Updated upstream
     def __init__(self,idCliente=0,nombre="" , apellido="" , dni=0 , telefono=0,metododepago=""):
+=======
+    def __init__(self, idCliente, nombre, apellido, dni, telefono, metodoDePago):
+>>>>>>> Stashed changes
         self._idCliente = idCliente
         self._nombre = nombre
         self._apellido = apellido
         self._dni = dni
         self._telefono = telefono
+<<<<<<< Updated upstream
         self._metodoDePago = metododepago
+=======
+        self._metodoDePago = metodoDePago
+>>>>>>> Stashed changes
 
     #GETTERS
     def get_idCliente(self):
