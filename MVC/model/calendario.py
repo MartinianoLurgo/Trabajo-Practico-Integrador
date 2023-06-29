@@ -1,7 +1,7 @@
 class Calendario:
-    def __init__(self):
-        self._fecha = str
-        self._estado = bool
+    def __init__(self,fecha="",estado=True):
+        self._fecha = fecha
+        self._estado = estado
 
     #GETTERS
     def get_fecha(self):
