@@ -1,21 +1,22 @@
 class VistaItem:
-    def mostrar_menu(self):
-        print(f"-------MENÚ DE COSTOS-------")
-        print("")
+    def mostrar_menu_item(self):
+        print("🔅================🔸🔱🔸================🔅")
+        print("       BIENVENIDO AL MENU PRINCIPAL")
+        print("🔅================🔸⚜️🔸================🔅")
 
-    def mostrar_importe(self,servicio):
+
+    def mostrar_importe_servicios(self,servicio):
         return(f"Importe de servicios :{servicio}⛽")
         
     def mostrar_iva(self,iva):
         return (f" IVA total: {iva}😮")
     
-    def mostrar_senia(self,senia):
+    def mostrar_importe_senia(self,senia):
         return(f"La seña que dio el cliente es de: {senia}💵")
     
-    def mostrar_total(self,total):
+    def mostrar_importe_total(self,total):
         return (f"El total de servico: {total} 🛒")
     
-    def mostrar_devolucion(self,devolucion):
+    def mostrar_importe_devolucion(self,devolucion):
         return (f"Devolucion: {devolucion}👌")
         
-    
