@@ -1,5 +1,0 @@
-01;joaquin;luque;44974608;3532258665;efectivo
-02;simon;bolivar;41746663;3532666392;credito
-03;jose;de la Rua;3948560;3532183590;debito
-04;luis;Perez;43756554;3572987762;efectivo
-
