@@ -3,28 +3,32 @@ class vistacliente:
         print("🔅================🔸🔱🔸================🔅")
         print("       BIENVENIDO AL MENU DE CLIENTES")
         print("🔅================🔸⚜🔸================🔅") 
-        print("")
         print("1 - Mostrar Lista de Clientes ")
         print("2 - Cambiar Datos del Cliente")
         print("3 - Salir del Programa")
-        return input("elije la opcion <--")
-    
+    def mostrar_lista_clientes(self):
+        print("🔅================🔸🔱🔸================🔅")
+        print("             LISTA DE CLIENTES")
+        print("🔅================🔸⚜🔸================🔅")
+
     def mostrar(self,id,nombre,apellido,dni,telefono,pago):
         print(f"{id} - {nombre} - {apellido} - {dni} - {telefono} - {pago}")
-        
-    def cambiar_nombre(self):
-        return input (f"escribe el nombre que deseas cambiar su atriburto")
     
     def cambiar_atributos(self):
-        print("--- cambiar atributos de el usuario---")
-        print("1 -  id")
+        print("🔅================🔸🔱🔸================🔅")
+        print("              CAMBIAR ATRIBUTOS")
+        print("🔅================🔸⚜🔸================🔅")
+        print("1 - ID")
         print("2 - nombre")
         print("3 - apellido ")
         print("4 - dni")
         print("5 - telefono")
         print("6 - metodo de pago ")
-        return input("--que queires cambiar del usuario--")
+        return input("Ingrese la opción que desee cambiar ➡️ ")
 
+    def pedir_id(self):
+        return int(input("Ingrese el ID de la persona que desee cambiar ➡️ "))
+    
     def pedir_nombre(self):
         return input("Ingrese el Nombre: ")
 

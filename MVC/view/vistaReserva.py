@@ -41,10 +41,10 @@ class VistaReserva:
         print("------------------------------------")
     
     def mostrar_mensaje_continuar(self):
-        return input("Presiona enter para continuar ➡️")
+        return input("Presiona enter para continuar ✅")
     
     def mostrar_precio_gastoAdministrativo(self,data):
-        return print(f"Precio actual del gasto administrativo{data}💸")
+        return print(f"Precio actual del gasto administrativo ${data}💸")
 
     def pedir_precio_gastoAdministrativo(self):
         return float(input("Ingrese el nuevo precio💸 -> "))
@@ -61,4 +61,4 @@ class VistaReserva:
     def manejo_de_errores(self):
         self.limpiar_pantalla()
         self.dato_invalido()
-        self.mostrar_mensaje_continuar
+        self.mostrar_mensaje_continuar()
