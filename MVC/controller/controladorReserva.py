@@ -19,7 +19,6 @@ class ControladorReserva:
         self._modelo = Reserva()
         self._vista = VistaReserva()
         self._item = Item()
-        self._vistaServicio = VistaServicio()
         self._listaReservas = []
 
     #Cargar archivo de reservas 
@@ -41,8 +40,76 @@ class ControladorReserva:
                     self._item.set_importeAdministrativo(float(linea))
         except FileNotFoundError:
             self._vista.archivo_noEncontrado()
-        
-    def mostrar_menu(self):
+    
+    #Ingresar datos del cliente
+    def ingresar_datos_cliente(self):
+        controladorCliente = ControladorCliente()
+        controladorCliente.cargar_archivo_cliente()
+        nuevoCliente = controladorCliente.registrar_Cliente()
+        self._modelo.set_cliente(nuevoCliente)
+        self._item.set_cliente(nuevoCliente)
+        controladorCliente.guardar_archivo()
+    
+    #Ingresar fechas
+    def ingresar_datos_fecha(self):
+        controladorCalendario = ControladorCalendario()
+        controladorCalendario.cargar_archivo_fechas()
+        controladorCalendario.ingresar_dia()
+        self._modelo.set_fecha(controladorCalendario)
+        self._item.set_fecha()
+    
+    #Elegir servicios para reserva
+    def elegir_servicios_reserva(self):
+        controladorServicio = ControladorServicio()
+        controladorServicio.cargar_archivo_servicios()
+        controladorServicio.menu_lista_servicios()
+        importeServicios = 0.0
+        opcion = 1
+        while opcion != 0:
+            opcion = controladorServicio.seleccionar_servicios_reserva()
+            for servicio in controladorServicio._listaServicios:
+                if servicio.get_idServicio() == opcion:
+                    self._modelo.set_servicios(servicio.get_tipoServicio())
+                    self._item.set_servicios(f"{servicio.getTipoServicio()} - ${servicio.getPrecio()}")
+                    importeServicios += servicio.get_precio()
+            self._item.set_importeServicios(importeServicios)
+
+    #Mostrar detalles de reserva
+    def detalles_reserva(self):
+        self._item.calcular_iva()
+        self._modelo.set_totalImporte(self._item.calcular_importeTotal())
+        self._item.calcular_senia()
+        self._vista.mostrar_detalles(self._item)
+        opcion = self._vista.preguntar_confirmacion()
+        if opcion.upper() == "SI":
+            self._modelo.set_nombreArchivo(f"{str(self._item.get_fecha())} - {str(self._item.get_cliente()).strip().split('_')}.txt")
+            self._listaReservas.append(self._modelo)
+            controladorCalendario = ControladorCalendario()
+            controladorCalendario.cargar_archivo_fechas()
+            controladorCalendario._listaFechas.append(self._modelo.get_fecha())
+            controladorCalendario.guardar_archivo()
+            self.guardar_item()
+            self._vista.mostrar_mensaje_confirmar()
+    
+    #Guardar Item
+    def guardar_item(self):
+        with open(f"Archivos\\Eventos\\{str(self._item.get_fecha())} - {str(self._item.get_cliente()).strip().split('_')}.txt", 'w+') as archivo:
+            archivo.write(self._item.__str__())
+    
+    #Cambiar gastos Administrativos
+    def cambiar_precio_gastosAdministrativos(self):
+        self._vista.mostrar_precio_gastoAdministrativo(self._item.get_importeAdministrativo())
+        self._item.set_importeAdministrativo(float(self._vista.pedir_precio_gastoAdministrativo()))
+
+    #Guardar archivo de reservas
+    def guardar_archivo_reservas(self):
+        with open(self.archivoEventos, "w") as archivo:
+            for reserva in self._listaReservas:
+                linea = str(reserva.get_idReserva()) + ";" + str(reserva.get_cliente()) + ";" + str(reserva.get_fecha()) + ";" + str(reserva.get_servicios()) + ";" + str(reserva.get_totalImporte()) + ";" + str(reserva.get_nombreArchivo())
+                archivo.write(linea + "\n")
+                
+    #Menu principal
+    def mostrar_menu_principal(self):
         opcion = 0
         while opcion != 4:
             self._vista.limpiar_pantalla()

@@ -23,7 +23,7 @@ class ControladorCalendario:
             self._vistaReserva.archivo_noEncontrado()
 
     #Ingresar dia
-    def ingresarDia(self):
+    def ingresar_dia(self):
         opcion = 1
         while opcion !=0 :
             try:
