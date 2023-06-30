@@ -40,8 +40,13 @@ class VistaReserva:
     def mostrar_mensaje_final(self):
         print("🔅================🔸🔱🔸================🔅")
         print("            SALISTE DEL PROGRAMA")
-        print("🔅================🔸⚜️🔸================🔅")    
+        print("🔅================🔸⚜️🔸================🔅")   
+     
     def limpiar_pantalla(self):
         time.sleep(0.5)
         os.system("cls")
     
+    def manejo_de_errores(self):
+        self.limpiar_pantalla()
+        self.dato_invalido()
+        self.mostrar_mensaje_continuar

@@ -1,47 +1,69 @@
 from model.cliente import Cliente
 from view.vistaCliente import vistacliente
-
+from view.vistaReserva import VistaReserva
 class controladorcliente:
-    def __init__(self):
-        self.vista = vistacliente()
+    def _init_(self):
+        self._vista = vistacliente()
         self.modelo = Cliente()
         self.lista_cliente = []
         self.opcion = 0
-    def abrirarchivo(self):
-        with open("MVC\\Archivos\\clientes.txt" , "r")as f:
-            for line in f.readlines():
-                vector = line.strip().split(";")
-                self.modelo = Cliente(vector[0],vector[1],vector[2],vector[3],vector[4],vector[5])
-                self.lista_cliente.append(self.modelo)
-    def menu(self):
-        self.abrirarchivo()
-        while  True:
-            self.opcion = self.vista.mostrar_menu()
-            if self.opcion == "1":
-                self.mostrarclientes()
-            elif self.opcion == "2":
-                self.cambiartdatoscliente()
-            elif self.opcion =="3":
-                break
-            
+        self._vista_reserva=VistaReserva()
+
+    #Cargar archivo existente de Clientes
+    def cargar_archivo_cliente(self):
+        try:
+            with open("MVC\\Archivos\\clientes.txt" , "r")as f:
+                for line in f.readlines():
+                    vector = line.strip().split(";")
+                    self.modelo = Cliente(vector[0],vector[1],vector[2],vector[3],vector[4],vector[5])
+                    self.lista_cliente.append(self.modelo)
+        except FileNotFoundError:
+            self._vista.archivo_no_encontrado()
+
+    #Registrar Nuevo Cliente        
+    def registrar_Cliente(self):
+        nuevoCliente = Cliente(idCliente='',nombre='', apellido="", dni='',telefono=0, metodoDePago='')
+        self._vista_reserva.limpiar_pantalla()
+        nuevoCliente.set_idCliente(self._vista.pedir_idCliente())
+        nuevoCliente.set_nombre(self._vista.pedir_nombre())
+        nuevoCliente.set_dni(self._vista.pedir_dni())
+        nuevoCliente.set_telefono(self._vista.pedir_telefono())
+        nuevoCliente.set_metodoDePago(self._vista.pedir_metodo_de_pago())
+        self.lista_cliente.append(nuevoCliente)
+        self._vista.registro_exitoso()
+        self._vista_reserva.limpiar_pantalla()
+        
+
+    #Mostrar Clientes
     def mostrarclientes(self,):
-        for i in self.lista_cliente:
-            self.vista.mostrar(i.get_idCliente(),i.get_nombre(),i.get_apellido(),i.get_dni(),i.get_telefono(),i.get_metodoDePago())
+        for cliente in self.lista_cliente:
+            self._vista.mostrar(cliente.get_idCliente(),cliente.get_nombre(),cliente.get_apellido(),cliente.get_dni(),cliente.get_telefono(),cliente.get_metodoDePago())
      
+
+    #Cambiar Datos del Cliente
     def cambiartdatoscliente(self):
-        persona=self.vista.cambiar_nombre()
-        for i in self.lista_cliente:
-            if persona == i.get_nombre():
-                atributos = self.vista.cambiar_atributos()
+        persona=self._vista.cambiar_nombre()
+        for cliente in self.lista_cliente:
+            if persona == cliente.get_nombre():
+                atributos = self._vista.pedir_atributos()
                 if atributos == "1":
-                    i.set_idCliente(self.vista.cambiar_id())
+                    cliente.set_idCliente(self._vista.pedir_id())
                 elif atributos == "2":
-                    i.set_nombre(self.vista.cambiar_nombre())
+                    cliente.set_nombre(self._vista.pedir_nombre())        
                 elif atributos == "3":
-                    i.set_apellido(self.vista.cambiar_apellido())
+                    cliente.set_apellido(self._vista.pedir_apellido())
                 elif atributos == "4":
-                    i.set_dni(self.vista.cambiar_dni())
+                    cliente.set_dni(self._vista.pedir_dni())
                 elif atributos == "5":
-                    i.set_telefono(self.vista.cambiar_telefono())
+                    cliente.set_telefono(self._vista.pedir_telefono())
                 elif atributos == "6":
-                    i.set_metodoDePago(self.vista.cambiar_metodo_pago())
+                    cliente.set_metodoDePago(self._vista.pedir_metodo_pago())
+
+    #Guardar Archivo Clientes
+    def guardar_archivo(self):
+        try:
+            with open("MVC\\Archivos\\clientes.txt" , "r")as f:
+                for cliente in self.lista_cliente:
+                    f.write(str(cliente.get_idCliente()) + "," + str(cliente.get_nombre()) + "," + str(cliente.get_apellido()) + "," + str(cliente.get_dni()) + "," + str(cliente.get_telefono()) + "," + str(cliente.get_metodoDepago()))
+        except FileNotFoundError:
+            self._vista.archivo_no_encontrado
