@@ -17,7 +17,7 @@ class ControladorCalendario:
             with open(self._archivo, "r") as archivo:
                 for lineas in archivo.readlines():
                     linea = lineas.strip().split("/")
-                    fecha = Calendario(int(linea[0]), int(linea[1]), int(linea[2]))
+                    fecha = Calendario(int(linea[0]), int(linea[1]), int(linea[2]),linea[3])
                     self._listaFechas.append(fecha)
         except FileNotFoundError:
             self._vistaReserva.archivo_noEncontrado()

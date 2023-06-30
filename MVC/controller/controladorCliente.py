@@ -21,17 +21,15 @@ class ControladorCliente:
 
     #Registrar Nuevo Cliente        
     def registrar_Cliente(self):
-        self._vista.mostrar_lista_clientes()
-        self.mostrarclientes()
+        self._vista.mostrar_registro()
         nuevoCliente = Cliente(idCliente='',nombre='', apellido="", dni='',telefono=0, metodoDePago='')
-        nuevoCliente.set_idCliente(self._vista.pedir_id())
         nuevoCliente.set_nombre(self._vista.pedir_nombre())
+        nuevoCliente.set_nombre(self._vista.pedir_apellido())
         nuevoCliente.set_dni(self._vista.pedir_dni())
         nuevoCliente.set_telefono(self._vista.pedir_telefono())
         nuevoCliente.set_metodoDePago(self._vista.pedir_metodo_de_pago())
-        self.lista_cliente.append(nuevoCliente)
+        self._listaCliente.append(nuevoCliente)
         self._vista.registro_exitoso()
-        self._vista_reserva.limpiar_pantalla()
         
 
     #Mostrar Clientes
@@ -66,8 +64,7 @@ class ControladorCliente:
     #Guardar Archivo Clientes
     def guardar_archivo(self):
         try:
-            with open("MVC\\Archivos\\clientes.txt" , "r")as f:
-                for cliente in self.lista_cliente:
-                    f.write(str(cliente.get_idCliente()) + "," + str(cliente.get_nombre()) + "," + str(cliente.get_apellido()) + "," + str(cliente.get_dni()) + "," + str(cliente.get_telefono()) + "," + str(cliente.get_metodoDepago()))
+            with open("MVC\\Archivos\\clientes.txt" , "r")as archivo:
+                for cliente in self._listaCliente:
+                    archivo.write(str(cliente.get_idCliente()) + "," + str(cliente.get_nombre()) + "," + str(cliente.get_apellido()) + "," + str(cliente.get_dni()) + "," + str(cliente.get_telefono()) + "," + str(cliente.get_metodoDePago()))
         except FileNotFoundError:
-            self._vista.archivo_no_encontrado
