@@ -3,7 +3,9 @@ class VistaItem:
         print("🔅================🔸🔱🔸================🔅")
         print("       BIENVENIDO AL MENU PRINCIPAL")
         print("🔅================🔸⚜️🔸================🔅")
-
+        print("---------Ingrese que Desea Realizar----------")
+        print("[1] Mostrar Costos De Evento")
+        print("[2] Calcular Devolucion")
 
     def mostrar_importe_servicios(self,servicio):
         return(f"Importe de servicios :{servicio}⛽")
