@@ -1,7 +1,7 @@
 from model.cliente import Cliente
 from view.vistaCliente import vistacliente
 from view.vistaReserva import VistaReserva
-class controladorcliente:
+class ControladorCliente:
     def _init_(self):
         self._vista = vistacliente()
         self.modelo = Cliente()
@@ -41,7 +41,7 @@ class controladorcliente:
      
 
     #Cambiar Datos del Cliente
-    def cambiartdatoscliente(self):
+    def cambiardatoscliente(self):
         persona=self._vista.cambiar_nombre()
         for cliente in self.lista_cliente:
             if persona == cliente.get_nombre():
