@@ -68,4 +68,3 @@ class ControladorCliente:
                 for cliente in self._listaCliente:
                     archivo.write(str(cliente.get_idCliente()) + "," + str(cliente.get_nombre()) + "," + str(cliente.get_apellido()) + "," + str(cliente.get_dni()) + "," + str(cliente.get_telefono()) + "," + str(cliente.get_metodoDePago()))
         except FileNotFoundError:
-            self._vista.archivo_no_encontrado()
