@@ -1,8 +1,8 @@
 class Fecha:
-    def __init__(self,dia=0,mes=0,anio=0):
-        self._dia = dia
-        self._mes = mes
-        self._anio = anio
+    def __init__(self):
+        self._dia = int
+        self._mes = 7
+        self._anio = 2023
 
     #Getters
     def get_dia(self):
