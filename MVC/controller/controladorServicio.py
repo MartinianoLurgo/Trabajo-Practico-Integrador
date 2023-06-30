@@ -24,7 +24,7 @@ class ControladorServicio:
     def menu_lista_servicios(self):
         self._vistaReserva.limpiar_pantalla()
         self._vistaServicio.mostrar_lista_servicios()
-        with open("MVC\\Archivos\\servicios.txt", "r") as archivo:
+        with open("MVC\\Archivos\\servicios.txt", "r", encoding="utf-8") as archivo:
             for lineas in archivo.readlines():
                 linea = lineas.strip().split(",")
                 print(linea[0] + " | " + linea[1] +" - " + linea[2] + " - " + linea[3])
@@ -45,11 +45,9 @@ class ControladorServicio:
 
     #Modificar precios de servicios
     def modificar_precio_servicios(self):
-        for servicio in self._listaServicios:
-            self._vistaServicio.mostrar_servicios(str(servicio.get_idServicio()) + " - " + servicio.get_tipoServicio() + " - " + servicio.get_descripcion() + " - $" + str(servicio.get_costo()))
         opcion = self._vistaServicio.elegir_modificar_servicio()
         for servicio in self._listaServicios:
-            if opcion == servicio.get_idServicio():
+            if int(opcion) == servicio.get_idServicio():
                 servicio.set_costo(self._vistaServicio.modificar_precio())
     #Guardar archivos
     def guardarArchivo(self):

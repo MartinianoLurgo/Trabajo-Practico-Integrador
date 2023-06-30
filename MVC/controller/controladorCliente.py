@@ -2,29 +2,29 @@ from model.cliente import Cliente
 from view.vistaCliente import vistacliente
 from view.vistaReserva import VistaReserva
 class ControladorCliente:
-    def _init_(self):
+    def __init__(self):
         self._vista = vistacliente()
-        self.modelo = Cliente()
-        self.lista_cliente = []
-        self.opcion = 0
-        self._vista_reserva=VistaReserva()
+        self._modelo = Cliente()
+        self._vistaReserva=VistaReserva()
+        self._listaCliente = []
 
     #Cargar archivo existente de Clientes
     def cargar_archivo_cliente(self):
         try:
-            with open("MVC\\Archivos\\clientes.txt" , "r")as f:
-                for line in f.readlines():
-                    vector = line.strip().split(";")
-                    self.modelo = Cliente(vector[0],vector[1],vector[2],vector[3],vector[4],vector[5])
-                    self.lista_cliente.append(self.modelo)
+            with open("MVC\\Archivos\\clientes.txt" , "r")as archivo:
+                for lineas in archivo.readlines():
+                    linea = lineas.strip().split(";")
+                    self._modelo = Cliente(linea[0],linea[1],linea[2],linea[3],linea[4],linea[5])
+                    self._listaCliente.append(self._modelo)
         except FileNotFoundError:
             self._vista.archivo_no_encontrado()
 
     #Registrar Nuevo Cliente        
     def registrar_Cliente(self):
+        self._vista.mostrar_lista_clientes()
+        self.mostrarclientes()
         nuevoCliente = Cliente(idCliente='',nombre='', apellido="", dni='',telefono=0, metodoDePago='')
-        self._vista_reserva.limpiar_pantalla()
-        nuevoCliente.set_idCliente(self._vista.pedir_idCliente())
+        nuevoCliente.set_idCliente(self._vista.pedir_id())
         nuevoCliente.set_nombre(self._vista.pedir_nombre())
         nuevoCliente.set_dni(self._vista.pedir_dni())
         nuevoCliente.set_telefono(self._vista.pedir_telefono())
@@ -35,15 +35,19 @@ class ControladorCliente:
         
 
     #Mostrar Clientes
-    def mostrarclientes(self,):
-        for cliente in self.lista_cliente:
+    def mostrarclientes(self):
+        lista = self._listaCliente
+        for cliente in lista:
             self._vista.mostrar(cliente.get_idCliente(),cliente.get_nombre(),cliente.get_apellido(),cliente.get_dni(),cliente.get_telefono(),cliente.get_metodoDePago())
      
 
     #Cambiar Datos del Cliente
     def cambiardatoscliente(self):
-        persona=self._vista.cambiar_nombre()
-        for cliente in self.lista_cliente:
+        self.mostrarclientes()
+        persona = self._vista.pedir_id()
+        self._vistaReserva.limpiar_pantalla()
+        self._vista.cambiar_atributos()
+        for cliente in self._listaCliente:
             if persona == cliente.get_nombre():
                 atributos = self._vista.pedir_atributos()
                 if atributos == "1":
