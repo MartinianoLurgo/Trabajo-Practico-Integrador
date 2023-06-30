@@ -41,4 +41,4 @@ class ControladorCliente:
                         lineas = archivo.readlines()
                         for linea in lineas:
                             linea = lineas.strip().split(",")
-                            print(linea)
+                            print(linea[0]+"|"+linea[1]+"|"+linea[2]+"|"+linea[3]+"|"+linea[4]+"|"+linea[5])
