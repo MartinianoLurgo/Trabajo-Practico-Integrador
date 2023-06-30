@@ -13,11 +13,6 @@ class ControladorItem:
         self._vista.mostrar_iva()
         self._vista.mostrar_importe_total()
 
-    def cargarcostos(self):
-        with open(self.archivos, "r", encoding="utf-8") as file:
-            for linea in archivo.readlines():
-                linea = linea.strip().split(";")
-                _lista_archivo = 
 
 
 

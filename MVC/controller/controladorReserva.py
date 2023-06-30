@@ -128,7 +128,12 @@ class ControladorReserva:
                 case 1:
                     return
                 case 2:
-                    self._controladorCliente.menu_clientes()
+                    try:
+                        self._controladorCliente.menu_clientes()
+                    except ValueError:
+                        self._vista.limpiar_pantalla()
+                        self._vista.dato_invalido()
+                        self._vista.mostrar_mensaje_continuar()
                 case 3:
                     controladorServicio = ControladorServicio()
                     opcion = 0
@@ -158,3 +163,7 @@ class ControladorReserva:
                                 controladorServicio.modificar_precio_servicios()      
         self._vista.limpiar_pantalla()
         self._vista.mostrar_mensaje_final()
+
+
+
+ 
