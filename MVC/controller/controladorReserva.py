@@ -26,9 +26,9 @@ class ControladorReserva:
         try:
             with open(self._archivoReservas, "r", encoding="utf-8") as archivo:
                 for lineas in archivo.readlines():
-                    linea = lineas.strip().split(";")
-                    reserva = Reserva(linea[0], linea[1], linea[2], linea[3], linea[4])
-                    self.listaEventos.append(reserva)
+                    linea = lineas.strip().split(",")
+                    reserva = Reserva(linea[0], linea[1], linea[2], linea[3], linea[4], linea[5])
+                    self._listaReservas.append(reserva)
         except FileNotFoundError:
             self._vista.archivo_noEncontrado()
             
@@ -43,6 +43,7 @@ class ControladorReserva:
     
     #Ingresar datos del cliente
     def ingresar_datos_cliente(self):
+        self._vista.limpiar_pantalla()
         controladorCliente = ControladorCliente()
         controladorCliente.cargar_archivo_cliente()
         nuevoCliente = controladorCliente.registrar_Cliente()
@@ -122,28 +123,29 @@ class ControladorReserva:
                 self._vista.manejo_de_errores()
             match opcion:
                 case 1:
-                    return
+                    self.ingresar_datos_cliente()
                 case 2:
                     opcion = 0
-                    self._vista.limpiar_pantalla()
-                    controladorCliente = ControladorCliente()
-                    controladorCliente.cargar_archivo_cliente()
-                    controladorCliente._vista.mostrar_menu()
-                    try:
-                        opcion = self._vista.pedir_opcion()
-                        if opcion < 1 or opcion > 3:
+                    while opcion != 3:
+                        self._vista.limpiar_pantalla()
+                        controladorCliente = ControladorCliente()
+                        controladorCliente.cargar_archivo_cliente()
+                        controladorCliente._vista.mostrar_menu()
+                        try:
+                            opcion = self._vista.pedir_opcion()
+                            if opcion < 1 or opcion > 3:
+                                self._vista.manejo_de_errores()
+                        except ValueError:
                             self._vista.manejo_de_errores()
-                    except ValueError:
-                        self._vista.manejo_de_errores()
-                    match opcion:
-                        case 1:
-                            self._vista.limpiar_pantalla()
-                            controladorCliente._vista.mostrar_lista_clientes()
-                            controladorCliente.mostrarclientes()
-                            self._vista.mostrar_mensaje_continuar()
-                        case 2:
-                            self._vista.limpiar_pantalla()
-                            controladorCliente.cambiardatoscliente()
+                        match opcion:
+                            case 1:
+                                self._vista.limpiar_pantalla()
+                                controladorCliente._vista.mostrar_lista_clientes()
+                                controladorCliente.mostrarclientes()
+                                self._vista.mostrar_mensaje_continuar()
+                            case 2:
+                                self._vista.limpiar_pantalla()
+                                controladorCliente.cambiardatoscliente()
                 case 3:
                     opcion = 0
                     controladorServicio = ControladorServicio()

@@ -21,9 +21,10 @@ class ControladorCliente:
 
     #Registrar Nuevo Cliente        
     def registrar_Cliente(self):
+        self._vista.mostrar_lista_clientes()
+        self.mostrarclientes()
         nuevoCliente = Cliente(idCliente='',nombre='', apellido="", dni='',telefono=0, metodoDePago='')
-        self._vista_reserva.limpiar_pantalla()
-        nuevoCliente.set_idCliente(self._vista.pedir_idCliente())
+        nuevoCliente.set_idCliente(self._vista.pedir_id())
         nuevoCliente.set_nombre(self._vista.pedir_nombre())
         nuevoCliente.set_dni(self._vista.pedir_dni())
         nuevoCliente.set_telefono(self._vista.pedir_telefono())

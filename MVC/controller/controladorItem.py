@@ -12,7 +12,3 @@ class ControladorItem:
         self._vista.mostrar_importe_servicios()
         self._vista.mostrar_iva()
         self._vista.mostrar_importe_total()
-
-
-
-
