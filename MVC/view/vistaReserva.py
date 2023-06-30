@@ -2,29 +2,27 @@ import os
 import time
 class VistaReserva:
     def mostrar_menuprincipal(self):
-        print("🔅================🔸🔱🔸================🔅")
+        print(" 🔅================🔸🔱🔸================🔅")
         print("       BIENVENIDO AL MENU PRINCIPAL")
-        print("🔅================🔸⚜️🔸================🔅")
-        print("1 - Menu Reservas 🧉")
-        print("2 - Clientes 👨‍🦱")
-        print("3 - Servicios 📝")
-        print("4 - Salir del programa 👋")
+        print(" 🔅================🔸⚜️🔸================🔅")
+        print(" 1 - Menú de Reservas 🧉")
+        print(" 2 - Menú de Clientes 👨‍🦱")
+        print(" 3 - Menú de Servicios 📝")
+        print(" 4 - Salir del programa 🔙")
+
+    def mostrar_menu_reservas(self):
+        print(" 🔅================🔸🔱🔸================🔅")
+        print("               MENU DE RESERVAS")
+        print(" 🔅================🔸⚜️🔸================🔅")
+        print(" 1 - Realizar reserva de evento 🎟️")
+        print(" 2 - Cancelar reserva del evento ❌")
+        print(" 3 - Volver al menú principal 🔙")
     
     def mostrar_detalles(self,data):
         print(data)
 
     def pedir_opcion(self):
         return int(input("Ingrese una opción ➡️ "))
-    
-    def mostrar_menureserva(self):
-        print("🔅================🔸🔱🔸================🔅")
-        print("       BIENVENIDO AL MENU DE RESERVAS")
-        print("🔅================🔸⚜️🔸================🔅")
-        print("1 - Realizar Nueva Reserva 😄")
-        print("2 - Cosultar Fechas disponibles 🗓️")
-        print("4 - Monto Total y su Seña 💰")
-        print("5 - Cancelar Reserva ❌")
-        print("6 - Volver al menú principal")
 
     def preguntar_confirmacion(self):
         return input("Quiere confirmar la reserva❓(SI/NO)")
@@ -50,10 +48,21 @@ class VistaReserva:
         return float(input("Ingrese el nuevo precio💸 -> "))
     
     def mostrar_mensaje_final(self):
-        print("🔅================🔸🔱🔸================🔅")
+        print(" 🔅================🔸🔱🔸================🔅")
         print("            SALISTE DEL PROGRAMA")
-        print("🔅================🔸⚜️🔸================🔅")   
-     
+        print("     GRACIAS POR ELEGIR NUESTRO SISTEMA!!")
+        print(" 🔅================🔸⚜️🔸================🔅")   
+    def volviendo_al_menu(self):
+        os.system("cls")
+        print("Volviendo al menú.")
+        time.sleep(0.5)
+        os.system("cls")
+        print("Volviendo al menú..")
+        time.sleep(0.5)
+        os.system("cls")
+        print("Volviendo al menú...")
+        time.sleep(0.5)
+    
     def limpiar_pantalla(self):
         time.sleep(0.5)
         os.system("cls")

@@ -1,29 +1,34 @@
 class vistacliente:
     def mostrar_menu(self):
-        print("🔅================🔸🔱🔸================🔅")
+        print(" 🔅================🔸🔱🔸================🔅")
         print("       BIENVENIDO AL MENU DE CLIENTES")
-        print("🔅================🔸⚜🔸================🔅") 
-        print("1 - Mostrar Lista de Clientes ")
-        print("2 - Cambiar Datos del Cliente")
-        print("3 - Salir del Programa")
+        print(" 🔅================🔸⚜🔸================🔅") 
+        print(" 1 - Mostrar Lista de Clientes 🧑‍💻")
+        print(" 2 - Cambiar Datos del Cliente 💱")
+        print(" 3 - Volver al menú principal 🔙 ")
     def mostrar_lista_clientes(self):
-        print("🔅================🔸🔱🔸================🔅")
+        print(" 🔅================🔸🔱🔸================🔅")
         print("             LISTA DE CLIENTES")
-        print("🔅================🔸⚜🔸================🔅")
+        print(" 🔅================🔸⚜🔸================🔅")
+
+    def mostrar_registro(self):
+        print(" 🔅================🔸🔱🔸================🔅")
+        print("          COMIENZO DE REGISTRO CLIENTE")
+        print(" 🔅================🔸⚜🔸================🔅")
 
     def mostrar(self,id,nombre,apellido,dni,telefono,pago):
         print(f"{id} - {nombre} - {apellido} - {dni} - {telefono} - {pago}")
     
     def cambiar_atributos(self):
-        print("🔅================🔸🔱🔸================🔅")
+        print(" 🔅================🔸🔱🔸================🔅")
         print("              CAMBIAR ATRIBUTOS")
-        print("🔅================🔸⚜🔸================🔅")
-        print("1 - ID")
-        print("2 - nombre")
-        print("3 - apellido ")
-        print("4 - dni")
-        print("5 - telefono")
-        print("6 - metodo de pago ")
+        print(" 🔅================🔸⚜🔸================🔅")
+        print(" 1 - ID")
+        print(" 2 - nombre")
+        print(" 3 - apellido ")
+        print(" 4 - dni")
+        print(" 5 - telefono")
+        print(" 6 - metodo de pago ")
         return input("Ingrese la opción que desee cambiar ➡️ ")
 
     def pedir_id(self):

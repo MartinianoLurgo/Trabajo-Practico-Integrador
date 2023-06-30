@@ -49,15 +49,16 @@ class ControladorReserva:
         nuevoCliente = controladorCliente.registrar_Cliente()
         self._modelo.set_cliente(nuevoCliente)
         self._item.set_cliente(nuevoCliente)
-        controladorCliente.guardar_archivo()
-    
+        self._vista.mostrar_mensaje_continuar()
     #Ingresar fechas
     def ingresar_datos_fecha(self):
         controladorCalendario = ControladorCalendario()
-        controladorCalendario.cargar_archivo_fechas()
         controladorCalendario.ingresar_dia()
-        self._modelo.set_fecha(controladorCalendario)
-        self._item.set_fecha()
+        self._modelo.set_fecha(controladorCalendario._modelo.get_dia())
+        self._item.set_fecha(controladorCalendario._modelo.get_dia())
+        self._vista.mostrar_mensaje_continuar()
+        self._vista.limpiar_pantalla()
+
     
     #Elegir servicios para reserva
     def elegir_servicios_reserva(self):
@@ -123,7 +124,20 @@ class ControladorReserva:
                 self._vista.manejo_de_errores()
             match opcion:
                 case 1:
-                    self.ingresar_datos_cliente()
+                    while opcion != 3:
+                        opcion = 0
+                        self._vista.limpiar_pantalla()
+                        self._vista.mostrar_menu_reservas()
+                        opcion = self._vista.pedir_opcion()
+                        match opcion:
+                            case 1:
+                                self.ingresar_datos_cliente()
+                                self.ingresar_datos_fecha()
+                                self.elegir_servicios_reserva()
+                            case 2:
+                                self._vista.limpiar_pantalla()
+                            case 3:
+                                self._vista.volviendo_al_menu()
                 case 2:
                     opcion = 0
                     while opcion != 3:
@@ -146,6 +160,8 @@ class ControladorReserva:
                             case 2:
                                 self._vista.limpiar_pantalla()
                                 controladorCliente.cambiardatoscliente()
+                            case 3:
+                                self._vista.volviendo_al_menu()
                 case 3:
                     opcion = 0
                     controladorServicio = ControladorServicio()
@@ -181,6 +197,7 @@ class ControladorReserva:
                                     archivo.write(str(self._item.get_importeAdministrativo()))
                                 self._vista.mostrar_mensaje_continuar()
                             case 4:
-                                self.mostrar_menu_principal()     
+                                self._vista.volviendo_al_menu()
+                                self.mostrar_menu_principal()   
         self._vista.limpiar_pantalla()
         self._vista.mostrar_mensaje_final()
