@@ -9,6 +9,7 @@ class ControladorServicio:
         self._archivo = "MVC\\Archivos\\servicios.txt"
         self._listaServicios = []
 
+    #Cargar archivo de servicios
     def cargar_archivo_servicios(self):
         try:
             with open(self._archivo, "r", encoding="utf-8") as archivo:
@@ -19,14 +20,16 @@ class ControladorServicio:
         except FileNotFoundError:
             self._vistaServicio.archivo_noEncontrado()
 
-    def mostrar_lista_servicios(self):
+    #Mostrar lista de servicios
+    def menu_lista_servicios(self):
         self._vistaReserva.limpiar_pantalla()
         self._vistaServicio.mostrar_lista_servicios()
         with open("MVC\\Archivos\\servicios.txt", "r") as archivo:
             for lineas in archivo.readlines():
                 linea = lineas.strip().split(",")
                 print(linea[0] + " | " + linea[1] +" - " + linea[2] + " - " + linea[3])
-
+            
+    #Seleccionar servicios para reserva
     def seleccionar_servicios_reserva(self):
         for servicio in self._listaServicios:
             if servicio.getEstado() == True:
@@ -37,21 +40,18 @@ class ControladorServicio:
                 opcionServicio = self._vistaServicio.elegir_servicio()
                 opcion = 0
             except ValueError:
-                self._vistaReserva.limpiar_pantalla()
-                self._vistaReserva.dato_invalido()
-                self._vistaReserva.mostrar_mensaje_continuar()
+                self._vistaReserva.manejo_de_errores()
         return opcionServicio
 
+    #Modificar precios de servicios
     def modificar_precio_servicios(self):
-        self.cargar_archivo_servicios()
-        self._vistaReserva.limpiar_pantalla()
         for servicio in self._listaServicios:
             self._vistaServicio.mostrar_servicios(str(servicio.get_idServicio()) + " - " + servicio.get_tipoServicio() + " - " + servicio.get_descripcion() + " - $" + str(servicio.get_costo()))
         opcion = self._vistaServicio.elegir_modificar_servicio()
         for servicio in self._listaServicios:
-            if int(opcion) == servicio.get_idServicio():
+            if opcion == servicio.get_idServicio():
                 servicio.set_costo(self._vistaServicio.modificar_precio())
-
+    #Guardar archivos
     def guardarArchivo(self):
         with open(self._archivo, "w", encoding="utf-8") as archivo:
             for servicio in self._listaServicios:
