@@ -9,6 +9,9 @@ class VistaReserva:
         print("2 - Clientes 👨‍🦱")
         print("3 - Servicios 📝")
         print("4 - Salir del programa 👋")
+    
+    def mostrar_detalles(self,data):
+        print(data)
 
     def pedir_opcion(self):
         return int(input("Ingrese una opción ➡️ "))
@@ -23,6 +26,9 @@ class VistaReserva:
         print("5 - Cancelar Reserva ❌")
         print("6 - Volver al menú principal")
 
+    def preguntar_confirmacion(self):
+        return input("Quiere confirmar la reserva❓(SI/NO)")
+    
     def mostrar_mensaje_confirmar(self):
         return print("Reserva confirmada con exito ✅")
     
@@ -36,6 +42,12 @@ class VistaReserva:
     
     def mostrar_mensaje_continuar(self):
         return input("Presiona enter para continuar ➡️")
+    
+    def mostrar_precio_gastoAdministrativo(self,data):
+        return print(f"Precio actual del gasto administrativo{data}💸")
+
+    def pedir_precio_gastoAdministrativo(self):
+        return float(input("Ingrese el nuevo precio💸 -> "))
     
     def mostrar_mensaje_final(self):
         print("🔅================🔸🔱🔸================🔅")
